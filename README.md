@@ -226,11 +226,10 @@ AWS analytics services:
 
 **Diagram Concept:**
 
-\[Sources\] → \[S3 Bronze\] → \[Glue ETL\] → \[S3 Silver\] →
-\[Transform/Aggregate\] → \[S3 Gold\] → \[Athena / BI / ML\]
-
 
 ![Alt text for the image](images/Image2.png "Optional Title Text")
+
+
 
 **6. Best Practices for Medallion Data Lakes on S3**
 
