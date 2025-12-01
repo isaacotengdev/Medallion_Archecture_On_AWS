@@ -88,10 +88,9 @@ The layers are:
 
 -   s3://your-datalake/bronze/orders/
 
-**2.2 Silver Layer -- Cleansed / Conformed Data**
+**2.2 Silver Layer -- Data that has been conformed and cleaned**
 
--   **Purpose:** Transform raw data into **clean, standardized, and
-    enriched datasets**
+-   **Purpose:** Transform raw data into **The goal is to create clean, standardised, and enriched databases from raw data.**
 
 -   **Data Characteristics:**
 
@@ -99,7 +98,7 @@ The layers are:
 
     -   Corrected data types
 
-    -   Enriched with lookups or joins
+    -   Enhanced using lookups or joins
 
     -   Consistent timestamps and formats
 
@@ -107,23 +106,23 @@ The layers are:
 
     -   Intermediate analytics
 
-    -   Feeding BI dashboards
+    -   Providing data to BI dashboards
 
 -   **Example in S3:**
 
--   s3://my-datalake/silver/customers/
+-   s3://your-datalake/silver/customers/
 
--   s3://my-datalake/silver/orders/
+-   s3://your-datalake/silver/orders/
 
 **Typical transformations:**
 
 -   Filter out bad or null records
 
--   Standardize timestamps and currencies
+-   Standardise currencies and timestamps.
 
 -   Join with reference tables (like product categories)
 
--   Validate with business rules
+-   Verify using business rules
 
 **2.3 Gold Layer -- Business-Level / Analytics Data**
 
@@ -131,12 +130,11 @@ The layers are:
 
 -   **Data Characteristics:**
 
-    -   Fully cleansed, reliable, and aggregated
+    -   Fully cleansed, trustworthy, and aggregated
 
     -   Optimized for reporting or machine learning
 
-    -   Often stored in **columnar formats** (Parquet, ORC) for faster
-        queries
+    -    For quicker enquiries, data is frequently stored in **columnar formats** (Parquet, ORC).
 
 -   **Use Cases:**
 
@@ -148,15 +146,15 @@ The layers are:
 
 -   **Example in S3:**
 
--   s3://my-datalake/gold/sales_summary/
+-   s3://your-datalake/gold/sales_summary/
 
--   s3://my-datalake/gold/customer_lifetime_value/
+-   s3://your-datalake/gold/customer_lifetime_value/
 
 **Typical transformations:**
 
--   Aggregation: daily, weekly, monthly
+-   Aggregation on daily, weekly, or monthly
 
--   Join multiple silver tables to create fact tables
+-   Join many silver tables to build fact tables
 
 -   Compute metrics like revenue, churn, or retention
 
@@ -231,6 +229,9 @@ AWS analytics services:
 \[Sources\] → \[S3 Bronze\] → \[Glue ETL\] → \[S3 Silver\] →
 \[Transform/Aggregate\] → \[S3 Gold\] → \[Athena / BI / ML\]
 
+
+![Alt text for the image](images/Image2.png "Optional Title Text")
+
 **6. Best Practices for Medallion Data Lakes on S3**
 
 1.  **Use separate buckets or prefixes per layer** (Bronze/Silver/Gold)
@@ -253,18 +254,18 @@ AWS analytics services:
 
 **E-Commerce Data Lake:**
 
--   Bronze: raw JSON order events from web/app
+-   Bronze: raw JSON order events from web or mobile apps
 
 -   Silver: deduplicated, validated orders joined with product catalog
 
 -   Gold: aggregated revenue by category, daily sales metrics, customer
     LTV
 
--   Analytics: dashboards for executives, Athena queries for marketing
+-   Analytics: Quicksight dashboards for executives, Athena queries for marketing
 
 **Conclusion**
 
-The combination of **AWS S3 and the Medallion architecture** provides a
+combining **AWS S3 and the Medallion architecture** provides a
 **scalable, structured, and reliable foundation** for modern data
 analytics.
 
