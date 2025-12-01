@@ -1,5 +1,9 @@
 # Medallion Architecture On AWS
+
 **Building Modern Data Lakes on AWS S3 with the Medallion Architecture**
+
+
+![Alt text for the image](images/image1.jpg "Optional Title Text")
 
 **Introduction**
 
