@@ -1,20 +1,19 @@
-# Medallion_Archecture_On_AWS
+# Medallion Architecture On AWS
 **Building Modern Data Lakes on AWS S3 with the Medallion Architecture**
 
 **Introduction**
 
-Data is the lifeblood of modern enterprises. But as the volume,
+Data constitute the foundation of contemporary enterprises. However as the volume,
 velocity, and variety of data grow, organizations face a critical
 challenge: **how to store, manage, and analyze data efficiently at
 scale**.
 
-Enter **data lakes** --- centralized repositories that allow you to
-store structured, semi-structured, and unstructured data in their raw
-form. And when paired with **AWS S3** and a **Medallion architecture**,
-you get a **scalable, reliable, and layered approach** for transforming
-raw data into analytics-ready insights.
+**data lakes** which is a centralized repository is used to stored  structured, 
+semi-structured, and unstructured data in their raw form. When combined with **AWS S3** 
+and the **Medallion architecture**, this approach provides **scalable, reliable, and layered approach** 
+for transforming raw data into insights ready for analysis.
 
-In this article, we'll explore:
+In this post, we'll explore:
 
 -   Why S3 is the go-to storage for modern data lakes
 
@@ -28,40 +27,40 @@ In this article, we'll explore:
 
 Amazon S3 (Simple Storage Service) is **object storage** that offers:
 
--   **Virtually unlimited storage** -- scale from gigabytes to exabytes
+-   **Unlimited storage** -- scale from gigabytes to petabytes of data without distruption
 
 -   **High durability** -- 11 nines of durability (99.999999999%)
 
--   **Flexible storage classes** -- Standard, Infrequent Access, Glacier
+-   **Flexible storage classes and formats** -- Standard, Infrequent Access, Glacier etc classes and can stores data 
+    in CSV ,JSON ,Parquet ,ORC etc formats.
 
--   **Secure and compliant** -- encryption at rest (SSE-S3/SSE-KMS), IAM
+-   **Secure and compliant** -- encryption at rest and transit(SSE-S3/SSE-KMS), IAM
     policies, and fine-grained access control
 
--   **Integration with analytics and AI/ML services** -- Glue, Athena,
-    Redshift Spectrum, EMR, SageMaker
+-   **Integration with analytics and AI/ML services** -- Intergrates seamlessly with AWS services like Glue, Athena,
+    Redshift Spectrum, EMR, SageMaker, Kinesis and MSK
 
 **Why S3 is perfect for a data lake:**
 
--   Stores **any format**: CSV, JSON, Parquet, Avro, ORC, images, audio,
+-   **Any format**: can be stored: CSV, JSON, Parquet, Avro, ORC, images, audio,
     logs
 
--   **Decouples compute and storage** -- multiple analytics engines can
-    access the same raw data without moving it
+-   **Decouples compute and storage** -- separates computation from storage so that different analytics engines can 
+    access the same raw data without having to move it.
 
--   **Supports schema-on-read** -- you define the schema when querying,
-    not when writing
 
-**2. Introduction to the Medallion Architecture**
+-   **Supports schema-on-read** -- The schema is defined during querying, not during writing
 
-The **Medallion Architecture** is a **layered approach** to structuring
-your data lake. It organizes data into multiple **refined layers** to
-improve **data quality, governance, and performance**.
+**2. Overview of the Medallion Architecture**
+
+A **layered approach** to organising your data lake is the **Medallion Architecture**. To enhance **data quality, governance, and performance** , 
+it arranges data into several **refined layers**.
 
 The layers are:
 
 **2.1 Bronze Layer -- Raw Data**
 
--   **Purpose:** Ingest all raw data exactly as received from sources
+-   **Purpose:** Ingest all raw data exactly as it was obtained from sources.
 
 -   **Data Characteristics:**
 
@@ -69,21 +68,21 @@ The layers are:
 
     -   May contain duplicates, errors, or missing values
 
-    -   Timestamped to track ingestion
+    -   Timestamped to monitor ingestion
 
 -   **Use Cases:**
 
     -   Audit trail
 
-    -   Raw logs and events
+    -   Unprocessed logs and events
 
-    -   Source for downstream transformations
+    -   Origin of downstream transformations
 
 -   **Example in S3:**
 
--   s3://my-datalake/bronze/customers/
+-   s3://your-datalake/bronze/customers/
 
--   s3://my-datalake/bronze/orders/
+-   s3://your-datalake/bronze/orders/
 
 **2.2 Silver Layer -- Cleansed / Conformed Data**
 
