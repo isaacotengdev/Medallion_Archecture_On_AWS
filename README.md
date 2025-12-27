@@ -90,7 +90,7 @@ The layers are:
 
 **2.2 Silver Layer -- Data that has been conformed and cleaned**
 
--   **Purpose:** Transform raw data into **The goal is to create clean, standardised, and enriched databases from raw data.**
+-   **Purpose:** The goal is to create clean, standardised, and enriched databases from raw data.
 
 -   **Data Characteristics:**
 
@@ -160,25 +160,20 @@ The layers are:
 
 **3. AWS Services that Complement S3 Data Lakes**
 
-Building a Medallion architecture on S3 works best when combined with
-AWS analytics services:
+Building a Medallion architecture on S3 works best when combined with AWS analytics services:
 
-  -----------------------------------------------------------------------
+  
   **Service**           **Role in Data Lake**
-  --------------------- -------------------------------------------------
+  
   **AWS Glue**          ETL/ELT jobs to transform Bronze → Silver → Gold
 
-  **Amazon Athena**     Query S3 data directly using SQL without moving
-                        it
+  **Amazon Athena**     Query S3 data directly using SQL without moving it
 
-  **Amazon Redshift     Query S3 data as external tables in Redshift
-  Spectrum**            
+  **Amazon Redshift**     Query S3 data as external tables in Redshif Spectrum           
 
-  **Amazon EMR**        Distributed Spark/Hadoop processing for
-                        large-scale transformations
+  **Amazon EMR**        Distributed Spark/Hadoop processing for large-scale transformations
 
-  **AWS Lake            Centralized access control, data catalog, and
-  Formation**           governance
+  **AWS Lake formation**           Centralized access control, data catalog, and  governance
 
   **Amazon QuickSight** BI dashboards on curated Gold data
   -----------------------------------------------------------------------
